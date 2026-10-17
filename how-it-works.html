@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works | TerraTurn</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .how-page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 24px 80px;
+            color: #1d2b20;
+        }
+
+        .how-hero {
+            text-align: center;
+            padding: 35px 0 45px;
+        }
+
+        .how-hero h1 {
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            margin-bottom: 16px;
+        }
+
+        .how-hero p {
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .how-steps {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .how-card {
+            background: #fff;
+            border: 1px solid #e0e7dc;
+            border-radius: 18px;
+            padding: 28px;
+        }
+
+        .how-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #e5eee2;
+            color: #244d32;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .how-card h2 {
+            margin: 18px 0 10px;
+            font-size: 1.35rem;
+        }
+
+        .how-card p {
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        .how-actions {
+            text-align: center;
+            margin-top: 42px;
+        }
+
+        .how-start {
+            display: inline-block;
+            background: #1d2b20;
+            color: white;
+            padding: 15px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .how-start:hover {
+            opacity: 0.88;
+        }
+
+        .how-back {
+            display: inline-block;
+            margin-top: 20px;
+            color: #244d32;
+        }
+
+        @media (max-width: 650px) {
+            .how-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .how-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="how-page">
+        <section class="how-hero">
+            <h1>How TerraTurn Works</h1>
+            <p>
+                Giving an unwanted item a second life doesn't have to be
+                complicated. TerraTurn helps you discover practical ways
+                to reduce waste, one item at a time.
+            </p>
+        </section>
+
+        <section class="how-steps">
+            <article class="how-card">
+                <span class="how-number">01</span>
+                <h2>Upload or Take a Photo</h2>
+                <p>
+                    Choose a photo of an unwanted item from your device,
+                    or use your camera to take a picture. Start with an
+                    item you want to repair, reuse, donate, or recycle.
+                </p>
+            </article>
+
+            <article class="how-card">
+                <span class="how-number">02</span>
+                <h2>Identify Your Item</h2>
+                <p>
+                    TerraTurn uses image recognition to predict what
+                    your item is. Review the result and use it to explore
+                    suitable next steps.
+                </p>
+            </article>
+
+            <article class="how-card">
+                <span class="how-number">03</span>
+                <h2>Choose a Better Option</h2>
+                <p>
+                    Explore four possibilities: repair the item, reuse it
+                    for another purpose, rehome it with someone who needs
+                    it, or recycle it where accepted.
+                </p>
+            </article>
+
+            <article class="how-card">
+                <span class="how-number">04</span>
+                <h2>Find Places Near You</h2>
+                <p>
+                    For repair, rehoming, and recycling, select your UAE
+                    emirate and search for relevant places using the
+                    location finder.
+                </p>
+            </article>
+
+            <article class="how-card">
+                <span class="how-number">05</span>
+                <h2>Take Action</h2>
+                <p>
+                    Follow the suggested steps and choose an option that
+                    suits your item. Always check local requirements,
+                    especially for batteries and electronic waste.
+                </p>
+            </article>
+
+            <article class="how-card">
+                <span class="how-number">06</span>
+                <h2>Track Your Impact</h2>
+                <p>
+                    Mark actions as completed to build your personal
+                    record and view illustrative estimates of the
+                    environmental impact of your choices.
+                </p>
+            </article>
+        </section>
+
+        <section class="how-actions">
+            <a class="how-start" href="index.html">
+                Start with TerraTurn
+            </a>
+            <br>
+            <a class="how-back" href="index.html">← Back to homepage</a>
+        </section>
+    </main>
+</body>
+</html>

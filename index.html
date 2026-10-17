@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerraTurn</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <h2>TerraTurn</h2>
+        <div>
+            <a href="#home">Home</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="my-impact.html">My Impact</a> 
+        </div>
+    </nav>
+
+    <main>
+       
+<section id="home" class="hero">
+    <p class="small-title">A NEW LIFE FOR THE THINGS YOU NO LONGER NEED</p>
+
+    <h1>GIVE THINGS.<br>
+        <span>ANOTHER TURN.</span>
+    </h1>
+
+    <div class="hero-content">
+        <p class="description">
+            A smarter way to reduce waste.
+            Discover whether to repair, reuse, rehome,
+            or recycle your items with TerraTurn.
+        </p>
+
+        <div class="hero-buttons">
+            <button id="startButton" type="button">
+                START TURNING
+            </button>
+
+           <a href="solutions.html" class="secondary-button">
+    EXPLORE SOLUTIONS
+</a>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="hero-image-section" aria-label="Nature and sustainability">
+    <img
+        src="nature.gif.gif"
+        alt="A lush green landscape with flowing waterways"
+        class="hero-image"
+    >
+</section>
+
+
+        <section id="uploadSection" class="upload-section" hidden>
+            <h2>What do you want to give another turn?</h2>
+            <p>Take a photo or upload a picture of your item.</p>
+
+            <div class="camera-options">
+                <button type="button" id="cameraButton">Take a Photo</button>
+                <button type="button" id="uploadButton">Upload a Photo</button>
+            </div>
+
+            <input type="file" id="imageInput" accept="image/*" hidden>
+
+            <div id="cameraContainer" hidden>
+                <video id="cameraPreview" autoplay playsinline></video>
+                <button type="button" id="captureButton">Capture Photo</button>
+                <button type="button" id="closeCameraButton">Close Camera</button>
+            </div>
+
+            <img id="preview" alt="Your uploaded item" hidden>
+
+            <button type="button" id="analyzeButton" disabled>
+                Analyze Item
+            </button>
+
+            <div id="result" aria-live="polite"></div>
+        </section>
+
+          </main>
+
+    <footer>TerraTurn — Give things another turn.</footer>
+
+<script src="https://unpkg.com/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+<script src="https://unpkg.com/@tensorflow-models/mobilenet@2.1.1/dist/mobilenet.min.js"></script>
+<script src="carbon.js"></script>
+<script src="script.js"></script>```
+
+</body>
+</html>

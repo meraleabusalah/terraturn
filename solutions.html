@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TerraTurn | Solutions</title>
+
+    <style>
+       
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-green: #1d2b20;
+    --green: #477951;
+    --light-green: #b9e6a5;
+    --cream: #f4f6ef;
+    --muted: #526052;
+    --border: #e2e8dc;
+}
+
+body {
+    margin: 0;
+    padding: 24px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark-green);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.solutions-page {
+    max-width: 1200px;
+    margin: 45px auto;
+    padding: 35px 3%;
+}
+
+.solutions-page h1 {
+    color: var(--dark-green);
+    font-size: clamp(42px, 6vw, 68px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin: 0 0 22px;
+}
+
+.solutions-intro {
+    max-width: 600px;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 0 0 45px;
+}
+
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.solution-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.solution-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(29, 43, 32, 0.08);
+}
+
+.solution-card h2 {
+    color: var(--green);
+    font-size: 25px;
+    font-weight: 800;
+    margin: 0 0 12px;
+}
+
+.solution-card p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 0 0 24px;
+    flex-grow: 1;
+}
+
+button {
+    background: var(--light-green);
+    color: var(--dark-green);
+    border: 1px solid transparent;
+    border-radius: 7px;
+    padding: 13px 20px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #a5d991;
+    transform: translateY(-2px);
+}
+
+button:focus-visible,
+a:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--green);
+    outline-offset: 3px;
+}
+
+#solutionResult {
+    margin-top: 30px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--muted);
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+#solutionResult:empty {
+    display: none;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 35px;
+    color: var(--green);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+#actionLocationSection {
+    max-width: 1100px;
+    margin: 20px auto 35px;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+#actionLocationHeading {
+    margin-top: 0;
+    color: var(--dark-green);
+}
+
+#actionLocationSection label {
+    display: block;
+    margin: 15px 0 8px;
+    font-weight: 600;
+}
+
+#actionEmirateSelect {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 16px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--dark-green);
+    font: inherit;
+}
+
+#actionLocationResults {
+    margin-top: 20px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.carbon-tracker {
+    max-width: 1100px;
+    margin: 0 auto 35px;
+    padding: 28px;
+    background: #e7efdf;
+    border-radius: 14px;
+}
+
+.carbon-tracker h2 {
+    margin-top: 0;
+    color: var(--dark-green);
+}
+
+.carbon-tracker p {
+    color: var(--muted);
+}
+
+.carbon-tracker strong {
+    color: var(--dark-green);
+}
+
+.carbon-tracker small {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    .solutions-page {
+        margin: 20px auto;
+        padding: 22px 8px;
+    }
+
+    .solutions-page h1 {
+        letter-spacing: -1px;
+    }
+
+    .solutions-intro {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+
+    .solutions-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .solution-card {
+        padding: 24px;
+    }
+
+    #actionLocationSection,
+    .carbon-tracker {
+        padding: 20px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <main class="solutions-page">
+        <h1>Choose a Solution</h1>
+
+        <p class="solutions-intro">
+            Every item has the potential for a second life.
+            Choose what you would like to do with your item.
+        </p>
+
+        <section class="solutions-grid">
+            <article class="solution-card">
+                <h2>Recycle</h2>
+                <p>
+                    Learn how to dispose of your item responsibly
+                    and recover materials that can be used again.
+                </p>
+                <button type="button" data-solution="recycle">
+                    Explore Recycling
+                </button>
+            </article>
+
+            <article class="solution-card">
+                <h2>Rehome</h2>
+                <p>
+                    Find ways to donate, give away, or pass your
+                    item on to someone who can use it.
+                </p>
+                <button type="button" data-solution="rehome">
+                    Explore Rehoming
+                </button>
+            </article>
+
+            <article class="solution-card">
+                <h2>Reuse</h2>
+                <p>
+                    Discover practical ways to turn your item
+                    into something useful instead of throwing it away.
+                </p>
+                <button type="button" data-solution="reuse">
+                    Explore Reuse
+                </button>
+            </article>
+
+            <article class="solution-card">
+                <h2>Repair</h2>
+                <p>
+                    Find ways to fix damage, replace worn parts,
+                    and make your item last longer.
+                </p>
+                <button type="button" data-solution="repair">
+                    Explore Repairs
+                </button>
+            </article>
+        </section>
+
+        <section id="solutionResult" aria-live="polite"></section>
+
+        <a class="back-link" href="index.html">
+            Back to TerraTurn
+        </a>
+    </main>
+
+    
+<div id="actionLocationSection" hidden>
+    <h3 id="actionLocationHeading">Find Places Near You</h3>
+
+    <label for="actionEmirateSelect">Choose your emirate:</label>
+
+    <select id="actionEmirateSelect">
+        <option value="Abu Dhabi">Abu Dhabi</option>
+        <option value="Dubai">Dubai</option>
+        <option value="Sharjah">Sharjah</option>
+        <option value="Ajman">Ajman</option>
+        <option value="Umm Al Quwain">Umm Al Quwain</option>
+        <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+        <option value="Fujairah">Fujairah</option>
+    </select>
+
+    <button type="button" id="actionFindLocationsButton">Find Places</button>
+
+    <div id="actionLocationResults" aria-live="polite"></div>
+</div>
+
+    
+<section class="carbon-tracker">
+    <h2>🌍 Your Carbon Impact</h2>
+
+    <p>
+        Estimated CO₂e avoided:
+        <strong data-carbon-total>0.0 kg CO₂e</strong>
+    </p>
+
+    <p>
+        Actions completed:
+        <strong data-carbon-count>0</strong>
+    </p>
+
+    <small>
+        These are illustrative estimates, not verified measurements.
+    </small>
+</section>
+
+
+    <script src="carbon.js"></script>
+    <script src="solutions.js"></script>
+</body>
+</html>

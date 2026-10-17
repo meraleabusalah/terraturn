@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Impact | TerraTurn</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        .impact-page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 24px 80px;
+            color: #1d2b20;
+        }
+
+        .impact-hero {
+            text-align: center;
+            padding: 35px 0 40px;
+        }
+
+        .impact-hero h1 {
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            margin-bottom: 14px;
+        }
+
+        .impact-hero p {
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .impact-card {
+            background: #fff;
+            border: 1px solid #e0e7dc;
+            border-radius: 18px;
+            padding: 28px;
+        }
+
+        .impact-label {
+            font-size: 0.95rem;
+            color: #526354;
+        }
+
+        .impact-value {
+            display: block;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin: 12px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .impact-note {
+            color: #526354;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .impact-section {
+            background: #fff;
+            border: 1px solid #e0e7dc;
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 22px;
+        }
+
+        .impact-section h2 {
+            margin-top: 0;
+        }
+
+        .impact-list {
+            padding-left: 22px;
+            line-height: 2;
+        }
+
+        .impact-tip {
+            background: #eaf1e6;
+            border-radius: 14px;
+            padding: 22px;
+            line-height: 1.8;
+        }
+
+        .impact-actions {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .impact-button {
+            display: inline-block;
+            background: #1d2b20;
+            color: white;
+            padding: 15px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .impact-back {
+            display: inline-block;
+            margin-top: 20px;
+            color: #244d32;
+        }
+
+        @media (max-width: 650px) {
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .impact-card,
+            .impact-section {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="impact-page">
+
+        <section class="impact-hero">
+            <h1>My Impact</h1>
+            <p>
+                Every small action counts. Track the sustainable
+                choices you complete and see how your efforts add up
+                over time.
+            </p>
+        </section>
+
+        <section class="impact-grid">
+            <article class="impact-card">
+                <span class="impact-label">Actions Completed</span>
+                <strong class="impact-value" id="impactActions">0</strong>
+                <p class="impact-note">
+                    Sustainable actions recorded by TerraTurn.
+                </p>
+            </article>
+
+            <article class="impact-card">
+                <span class="impact-label">Estimated CO₂e Avoided</span>
+                <strong class="impact-value" id="impactCarbon">0 kg</strong>
+                <p class="impact-note">
+                    An illustrative estimate, not a direct measurement.
+                </p>
+            </article>
+        </section>
+
+        <section class="impact-section">
+            <h2>Your Progress</h2>
+            <p id="impactMessage" aria-live="polite">
+                Loading your progress...
+            </p>
+            <ul class="impact-list" id="impactBreakdown">
+                <li>Your action breakdown will appear here.</li>
+            </ul>
+        </section>
+
+        <section class="impact-section">
+            <h2>Why Your Actions Matter</h2>
+            <p>
+                Repairing items can extend their useful life.
+                Reusing and rehoming items can reduce the need for
+                new products. Recycling can help recover materials
+                when the correct collection facilities are available.
+            </p>
+        </section>
+
+        <section class="impact-tip">
+            <h2>A Small Challenge</h2>
+            <p>
+                Before throwing something away, ask yourself:
+                Can I repair it, reuse it, pass it on, or recycle it
+                responsibly?
+            </p>
+            <p>
+                Choose one item this week and give it a second chance.
+            </p>
+        </section>
+
+        <section class="impact-actions">
+            <a class="impact-button" href="index.html">
+                Take Another Action
+            </a>
+            <br>
+            <a class="impact-back" href="index.html">
+                ← Back to homepage
+            </a>
+        </section>
+
+    </main>
+
+    <script src="carbon.js"></script>
+
+    
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const actionsElement = document.getElementById("impactActions");
+        const carbonElement = document.getElementById("impactCarbon");
+        const messageElement = document.getElementById("impactMessage");
+        const breakdownElement = document.getElementById("impactBreakdown");
+
+        function showProgress() {
+            if (!window.TerraCarbon) {
+                messageElement.textContent =
+                    "The carbon tracker could not load. Please refresh the page.";
+                return;
+            }
+
+            const count = TerraCarbon.getCount();
+            const total = TerraCarbon.getTotal();
+
+            actionsElement.textContent = count;
+            carbonElement.textContent = total.toFixed(1) + " kg";
+
+            if (count === 0) {
+                messageElement.textContent =
+                    "You haven't completed any actions yet. Start with an item and record your first sustainable action!";
+                breakdownElement.replaceChildren();
+
+                const listItem = document.createElement("li");
+                listItem.textContent =
+                    "Your completed actions will appear here.";
+                breakdownElement.appendChild(listItem);
+            } else {
+                messageElement.textContent =
+                    "You've recorded " + count +
+                    " completed action" + (count === 1 ? "" : "s") +
+                    ". Keep going!";
+                breakdownElement.replaceChildren();
+
+                const listItem = document.createElement("li");
+                listItem.textContent =
+                    "Total estimated CO₂e avoided: " +
+                    total.toFixed(1) + " kg.";
+                breakdownElement.appendChild(listItem);
+            }
+        }
+
+        showProgress();
+
+        window.addEventListener("terraturnCarbonUpdated", showProgress);
+        window.addEventListener("storage", showProgress);
+    });
+</script>
+
+</body>
+</html>
